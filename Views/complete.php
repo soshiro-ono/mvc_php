@@ -24,7 +24,7 @@ $controller -> create($_POST);  //UserControllers.php 93行目のcreate関数を
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Casteria</title>
-    <link rel="stylesheet" type="text/css" href="../public/css/complete.css">
+    <link rel="stylesheet" type="text/css" href="../css/complete.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./validation.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
