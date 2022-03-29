@@ -20,7 +20,7 @@ if (!empty($_GET)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Casteria</title>
-    <link rel="stylesheet" type="text/css" href="../public/css/edit.css">
+    <link rel="stylesheet" type="text/css" href="../css/edit.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./validation.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -39,7 +39,10 @@ if (!empty($_GET)) {
             <label>氏名</label><span id="red">*</span>
           </div>
           <div class="validation">
-            <?php echo $_SESSION['nameValidation']; ?>
+          <?php if (isset($_SESSION['nameValidation'])){
+              echo $_SESSION['nameValidation'];
+            }
+          ?>
           </div>
           <div class="form-content">
             <input type="text" name="name" id="name" placeholder="山田太郎"
@@ -50,7 +53,10 @@ if (!empty($_GET)) {
             <label>フリガナ</label><span id="red">*</span>
           </div>
           <div class="validation">
-            <?php echo $_SESSION['kanaValidation']; ?>
+          <?php if (isset($_SESSION['kanaValidation'])) {
+              echo $_SESSION['kanaValidation'];
+            }
+          ?>
           </div>
           <div class="form-content">
             <input type="text" name="kana" id="kana" placeholder="ヤマダタロウ"
@@ -61,7 +67,10 @@ if (!empty($_GET)) {
             <label>電話番号</label>
           </div>
           <div class="validation">
-            <?php echo $_SESSION['telValidation']; ?>
+          <?php if (isset($_SESSION['telValidation'])) {
+              echo $_SESSION['telValidation'];
+            }
+          ?>
           </div>
           <div class="form-content">
             <input type="text" name="tel" id="tel" placeholder="09012345678" maxlength="50"
@@ -72,7 +81,10 @@ if (!empty($_GET)) {
             <label>メールアドレス</label><span id="red">*</span>
           </div>
           <div class="validation">
-            <?php echo $_SESSION['emailValidation']; ?>
+          <?php if (isset($_SESSION['emailValidation'])) {
+              echo $_SESSION['emailValidation'];
+            }
+          ?>
           </div>
           <div class="form-content">
             <input type="text" name="email" id="email" placeholder="test@test.co.jp" maxlength="50"
@@ -83,7 +95,10 @@ if (!empty($_GET)) {
             <label><h3>お問い合わせ内容をご記入ください<span id="red">*</span></h3></label>
           </div>
           <div class="validation">
-            <?php echo $_SESSION['bodyValidation']; ?>
+          <?php if (isset($_SESSION['bodyValidation'])) {
+              echo $_SESSION['bodyValidation'];
+            }
+          ?>
           </div>
           <div class="form-content">
             <textarea name="body" id="body"  maxlength="500" wrap="hard" ><?php echo $data['body'] ?></textarea>

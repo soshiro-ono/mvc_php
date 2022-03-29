@@ -67,24 +67,26 @@ class Model
                     $sql->execute(array($name, $kana, $tel, $email, $body));
 
                     $pdo->commit(); //コミット
+                    $_SESSION = array();
+                    session_destroy();
 
-                    $_SESSION['name'] = '';
-                    $_SESSION['kana'] = '';
-                    $_SESSION['tel'] = '';
-                    $_SESSION['email'] = '';
-                    $_SESSION['body'] = '';
-                    // var_dump($get_post["name"]);
+                    // $_SESSION['name'] = '';
+                    // $_SESSION['kana'] = '';
+                    // $_SESSION['tel'] = '';
+                    // $_SESSION['email'] = '';
+                    // $_SESSION['body'] = '';
                 
-                    $_SESSION['nameValidation'] = '';
-                    $_SESSION['kanaValidation'] = '';
-                    $_SESSION['telValidation'] = '';
-                    $_SESSION['emailValidation'] = '';
-                    $_SESSION['bodyValidation'] = '';
+                    // $_SESSION['nameValidation'] = '';
+                    // $_SESSION['kanaValidation'] = '';
+                    // $_SESSION['telValidation'] = '';
+                    // $_SESSION['emailValidation'] = '';
+                    // $_SESSION['bodyValidation'] = '';
                 } catch (PDOException $e) {
                     $pdo->rollback(); //ロールバック
                     exit('データベースに接続できませんでした。' . $e->getMessage());
                 }
     }
+
 
     public function edit($get_id)
     {

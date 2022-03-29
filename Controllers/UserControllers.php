@@ -4,7 +4,7 @@ namespace User;
 use Model;
 
 require_once('../Models/model.php');
- 
+
 class UserController //クラスは関数の集まり
 {
     public function validation($get_post)
