@@ -3,13 +3,24 @@
 use User\UserController;
 
 session_start();
+// POSTされたトークンを取得
+// $token = isset($_POST["token"]) ? $_POST["token"] : "";
+
+// セッション変数のトークンを取得
+// $session_token = isset($_SESSION["token"]) ? $_SESSION["token"] : "";
+// var_dump($session_token);
+// セッション変数のトークンを削除
+// unset($_SESSION["token"]);
+
 require_once('../Controllers/UserControllers.php'); //これを書くことによってファイルが共有される。インクルードみたいなもん
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     header('Location: contact.php');
     //post request以外リダイレクト
+    exit;
 }
+
 $controller = new UserController(); //userコントローラークラスを呼び出している。５行目のrequire_onceをしてるから使える。$controllerにUserController.phpで記述した関数たちを代入しているイメージ
 $controller -> create($_POST);  //UserControllers.php 93行目のcreate関数を呼び出している。
 
@@ -24,7 +35,7 @@ $controller -> create($_POST);  //UserControllers.php 93行目のcreate関数を
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Casteria</title>
-    <link rel="stylesheet" type="text/css" href="../public/css/complete.css">
+    <link rel="stylesheet" type="text/css" href="../css/complete.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./validation.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">

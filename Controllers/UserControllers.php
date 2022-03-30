@@ -4,9 +4,13 @@ namespace User;
 use Model;
 
 require_once('../Models/model.php');
- 
+
 class UserController //クラスは関数の集まり
 {
+    public function __construct()
+    {
+        $this->Model = new Model\Model();
+    }
     public function validation($get_post)
     {
         $nameValidation = '';
@@ -170,35 +174,38 @@ class UserController //クラスは関数の集まり
 
     public function findAll() //関数
     {
-        $findAll = new Model\Model();//これは何をしてる？おそらくモデルの関数のインスタンスを定義（使う準備）
-        return $params = $findAll -> findAll();
+        // $findAll = new Model\Model();
+        //これは何をしてる？おそらくモデルの関数のインスタンスを定義（使う準備）
+        return $params = $this->Model -> findAll();
     }
 
     public function create($get_post)
     {
-        $Model = new Model\Model(); //おそらくモデルの関数のインスタンスを定義 これってもしかしてモデルに記述した関数を使ってるから$modelにしてるんちゃん？他のところが$controllerなんはコントローラークラスの関数使ってるからちゃうん
+        // $Model = new Model\Model(); 
+        //おそらくモデルの関数のインスタンスを定義 これってもしかしてモデルに記述した関数を使ってるから$modelにしてるんちゃん？他のところが$controllerなんはコントローラークラスの関数使ってるからちゃうん
         $Model -> create($get_post); //モデルに記述した関数を実行している
     }
 
     // public function edit()
     public function edit($get_id)
     {
-        $data = new Model\Model();
-        $params = $data -> edit($get_id);
+        // $data = new Model\Model();
+        $params = $this->Model -> edit($get_id);
         // var_dump($params);
         return $params;
     }
 
     public function delete($delete_id)
     {
-        $Model = new Model\Model(); 
-        $Model -> delete($delete_id); //モデルに記述した関数を実行している
+        // $Model = new Model\Model(); 
+        $this->Model -> delete($delete_id); //モデルに記述した関数を実行している
     }
 
 
     public function update($update)
     {
-        $Model = new Model\Model(); //おそらくモデルの関数のインスタンスを定義 これってもしかしてモデルに記述した関数を使ってるから$modelにしてるんちゃん？他のところが$controllerなんはコントローラークラスの関数使ってるからちゃうん
-        $Model -> update($update); //モデルに記述した関数を実行している
+        // $Model = new Model\Model(); 
+        //おそらくモデルの関数のインスタンスを定義 これってもしかしてモデルに記述した関数を使ってるから$modelにしてるんちゃん？他のところが$controllerなんはコントローラークラスの関数使ってるからちゃうん
+        $this->Model -> update($update); //モデルに記述した関数を実行している
     }
 }
