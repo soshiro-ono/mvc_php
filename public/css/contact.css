@@ -1,0 +1,45 @@
+.form-group{
+  /* display: flex; */
+  text-align: center;
+}
+
+.form-content{
+  font-size: 20px;
+}
+
+/* .form-container{
+  background-color: skyblue;
+} */
+
+.form-table {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+}
+.form-table tr th{
+  text-align: center;
+  border: 1px solid;
+  padding: 10px;
+}
+.form-table td{
+  text-align: left;
+  border: 1px solid;
+  padding: 10px; 
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  background-color: darkgray;
+  min-height: 100px;
+}
+
+.footer-content {
+  margin-right: 15px;
+}
+
+.red {
+  color:red;
+}
